@@ -114,14 +114,14 @@ class Bouncer
         // Non-Public Address
         if (!self::isPublic($addr)) {
             if (!empty($forwarded_for)) {
-                $addr = array_pop($forwarded_for);
+                $addr = array_shift($forwarded_for);
             }
         }
 
         // Trusted Proxies (example)
         if ($addr == '78.109.84.222') {
             if (!empty($forwarded_for)) {
-                $addr = array_pop($forwarded_for);
+                $addr = array_shift($forwarded_for);
             }
         }
 
@@ -134,7 +134,7 @@ class Bouncer
             strpos($addr, '195.189') === 0 ||
             strpos($addr, '217.212') === 0) {
                 if (!empty($forwarded_for)) {
-                    $addr = array_pop($forwarded_for);
+                    $addr = array_shift($forwarded_for);
                 }
          }
 
