@@ -92,7 +92,12 @@ class Bouncer
     protected static function isPublic($addr)
     {
       if ($addr === '127.0.0.1' || $addr == '::1') return false;
-      if (strpos($addr, '172.') === 0 || strpos($addr, '192.') === 0 || strpos($addr, '10.') === 0) return false;
+      if (strpos($addr, '10.') === 0 ||
+          strpos($addr, '192.168.') === 0 ||
+         (strpos($addr, '172.') === 0 && in_array(substr($addr, 4, 3), array(
+             '16.', '17.', '18.', '19.', '20.', '21.', '22.', '23.',
+             '24.', '25.', '26.', '27.', '28.', '29.', '30.', '31.'
+         ), true) === true)) return false;
       return true;
     }
 
