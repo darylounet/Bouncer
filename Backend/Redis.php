@@ -1,4 +1,5 @@
 <?php
+namespace __BOUNCER__;
 
 require_once 'Rediska.php';
 require_once 'Rediska/Key.php';
@@ -18,7 +19,7 @@ class Bouncer_Backend_Redis
             'servers' => array(array('host' => '127.0.0.1'))
         );
         $options = array_merge($defaults, $options);
-        self::$_rediska = new Rediska($options);
+        self::$_rediska = new \Rediska($options);
     }
 
     public static function rediska()
@@ -34,7 +35,7 @@ class Bouncer_Backend_Redis
     public static function get($keyname)
     {
         if (empty(self::$_keys[$keyname])) {
-            $key = new Rediska_Key($keyname);
+            $key = new \Rediska_Key($keyname);
             self::$_keys[$keyname] = $key->getValue();
         }
         return self::$_keys[$keyname];
@@ -43,7 +44,7 @@ class Bouncer_Backend_Redis
     public static function set($keyname, $value = null)
     {
         self::$_keys[$keyname] = $value;
-        $key = new Rediska_Key($keyname);
+        $key = new \Rediska_Key($keyname);
         return $key->setValue($value);
     }
 
@@ -80,35 +81,35 @@ class Bouncer_Backend_Redis
     public static function getAgentsIndex($namespace = '')
     {
         $indexKey = empty($namespace) ? 'agents' : "agents-$namespace";
-        $agentsIndex = new Rediska_Key_List($indexKey);
+        $agentsIndex = new \Rediska_Key_List($indexKey);
         return $agentsIndex->toArray(0, 10000);
     }
 
     public static function getAgentsIndexFingerprint($fingerprint, $namespace = '')
     {
         $indexKey = empty($namespace) ? "agents-$fingerprint" : "agents-$fingerprint-$namespace";
-        $agentsIndex = new Rediska_Key_List($indexKey);
+        $agentsIndex = new \Rediska_Key_List($indexKey);
         return $agentsIndex->toArray(0, 10000);
     }
 
     public static function getAgentsIndexHost($haddr, $namespace = '')
     {
         $indexKey = empty($namespace) ? "agents-$haddr" : "agents-$haddr-$namespace";
-        $agentsIndex = new Rediska_Key_List($indexKey);
+        $agentsIndex = new \Rediska_Key_List($indexKey);
         return $agentsIndex->toArray(0, 10000);
     }
 
     public static function countAgentsFingerprint($fingerprint, $namespace = '')
     {
         $indexKey = empty($namespace) ? "agents-$fingerprint" : "agents-$fingerprint-$namespace";
-        $agentsIndex = new Rediska_Key_List($indexKey);
+        $agentsIndex = new \Rediska_Key_List($indexKey);
         return count($agentsIndex);
     }
 
     public static function countAgentsHost($haddr, $namespace = '')
     {
         $indexKey = empty($namespace) ? "agents-$haddr" : "agents-$haddr-$namespace";
-        $agentsIndex = new Rediska_Key_List($indexKey);
+        $agentsIndex = new \Rediska_Key_List($indexKey);
         return count($agentsIndex);
     }
 
@@ -122,13 +123,13 @@ class Bouncer_Backend_Redis
     public static function getConnectionsKeyList($namespace = '')
     {
         $key = empty($namespace) ? "connections" : "connections-$namespace";
-        return new Rediska_Key_List($key);
+        return new \Rediska_Key_List($key);
     }
 
     public static function getAgentConnectionsKeyList($agent, $namespace = '')
     {
         $key = empty($namespace) ? "connections-$agent" : "connections-$namespace-$agent";
-        return new Rediska_Key_List($key);
+        return new \Rediska_Key_List($key);
     }
 
     public static function indexConnection($key, $agent, $namespace = '')

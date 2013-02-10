@@ -1,14 +1,15 @@
 <?php
+namespace __BOUNCER__;
 
 class Bouncer_Rules_Basic
 {
 
     public static function load()
     {
-        Bouncer::addRule('browser_identity', array('Bouncer_Rules_Basic', 'browser_version'));
-        Bouncer::addRule('browser_identity', array('Bouncer_Rules_Basic', 'os_version'));
+        Bouncer::addRule('browser_identity', __NAMESPACE__ .'\Bouncer_Rules_Basic::browser_version');
+        Bouncer::addRule('browser_identity', __NAMESPACE__ .'\Bouncer_Rules_Basic::os_version');
 
-        Bouncer::addRule('request', array('Bouncer_Rules_Basic', 'has_cookie'));
+        Bouncer::addRule('request', __NAMESPACE__ .'\Bouncer_Rules_Basic::has_cookie');
     }
 
     public static function browser_version($identity)

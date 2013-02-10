@@ -1,4 +1,6 @@
 <?php
+namespace __BOUNCER__;
+
 $botnet_fingerprints = array(
 // Most Popular (moved to banned)
 // 'cd3ea020baf312a8dc8e12e8ecd524ab',
@@ -674,4 +676,3 @@ $botnet_fingerprints = array(
 'c3a3108a7c14cf510c1ca04c96a3763a',
 );
 return $botnet_fingerprints;
-?>

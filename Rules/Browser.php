@@ -1,4 +1,5 @@
 <?php
+namespace __BOUNCER__;
 
 class Bouncer_Rules_Browser
 {
@@ -13,8 +14,8 @@ class Bouncer_Rules_Browser
 
     public static function load()
     {
-        Bouncer::addRule('browser_identity', array('Bouncer_Rules_Browser', 'browser_identity'));
-        Bouncer::addRule('request', array('Bouncer_Rules_Browser', 'browser_request'));
+        Bouncer::addRule('browser_identity', __NAMESPACE__ .'\Bouncer_Rules_Browser::browser_identity');
+        Bouncer::addRule('request', __NAMESPACE__ .'\Bouncer_Rules_Browser::browser_request');
     }
 
     public static function browser_identity($identity)

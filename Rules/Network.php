@@ -1,4 +1,5 @@
 <?php
+namespace __BOUNCER__;
 
 class Bouncer_Rules_Network
 {
@@ -27,7 +28,7 @@ class Bouncer_Rules_Network
 
     public static function load(array $options = array())
     {
-        Bouncer::addRule('ip_infos', array('Bouncer_Rules_Network', 'ipInfos'));
+        Bouncer::addRule('ip_infos', __NAMESPACE__ .'\Bouncer_Rules_Network::ipInfos');
     }
 
     public static function ipInfos($infos)

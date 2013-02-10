@@ -1,4 +1,5 @@
 <?php
+namespace __BOUNCER__;
 
 class Bouncer_Backend_Memcache
 {
@@ -25,9 +26,9 @@ class Bouncer_Backend_Memcache
     {
         if (empty(self::$memcache)) {
             if (class_exists('Memcache')) {
-                $memcache = new Memcache();
+                $memcache = new \Memcache();
             } elseif (class_exists('Memcached')) {
-                $memcache = new Memcached();
+                $memcache = new \Memcached();
             }
             if (isset($memcache)) {
                 foreach (self::$_servers as $server) {
@@ -47,7 +48,7 @@ class Bouncer_Backend_Memcache
     public static function api()
     {
         $memcache = self::memcache();
-        if ($memcache instanceof Memcached) {
+        if ($memcache instanceof \Memcached) {
             return 'memcached';
         }
         return 'memcache';

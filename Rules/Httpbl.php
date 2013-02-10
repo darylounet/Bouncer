@@ -1,4 +1,5 @@
 <?php
+namespace __BOUNCER__;
 
 class Bouncer_Rules_Httpbl
 {
@@ -10,9 +11,9 @@ class Bouncer_Rules_Httpbl
     public static function load(array $options = array())
     {
         self::setOptions($options);
-        Bouncer::addRule('ip_infos', array('Bouncer_Rules_Httpbl', 'ipInfos'));
-        Bouncer::addRule('browser_identity', array('Bouncer_Rules_Httpbl', 'test'));
-        Bouncer::addRule('robot_identity', array('Bouncer_Rules_Httpbl', 'test'));
+        Bouncer::addRule('ip_infos', __NAMESPACE__ .'\Bouncer_Rules_Httpbl::ipInfos');
+        Bouncer::addRule('browser_identity', __NAMESPACE__ .'\Bouncer_Rules_Httpbl::test');
+        Bouncer::addRule('robot_identity', __NAMESPACE__ .'\Bouncer_Rules_Httpbl::test');
     }
 
     public static function setOptions(array $options = array())

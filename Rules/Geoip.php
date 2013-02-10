@@ -1,4 +1,5 @@
 <?php
+namespace __BOUNCER__;
 
 class Bouncer_Rules_Geoip extends Bouncer
 {
@@ -7,7 +8,7 @@ class Bouncer_Rules_Geoip extends Bouncer
 
     public static function load()
     {
-        Bouncer::addRule('ip_infos', array('Bouncer_Rules_Geoip', 'ipInfos'));
+        Bouncer::addRule('ip_infos', __NAMESPACE__ .'\Bouncer_Rules_Geoip::ipInfos');
     }
 
     public static function ipInfos($infos)
@@ -25,8 +26,8 @@ class Bouncer_Rules_Geoip extends Bouncer
     {
         // first run without geoip extension
         if (empty(self::$_gi) && !function_exists('geoip_country_code_by_name')) {
-            require_once dirname(__FILE__) . "/../lib/geoip.inc";
-            self::$_gi = geoip_open(dirname(__FILE__) . "/../lib/geoip.dat", GEOIP_STANDARD);
+            require_once dirname(__FILE__) . '/../lib/geoip.inc.php';
+            self::$_gi = geoip_open(dirname(__FILE__) . '/../lib/geoip.dat', GEOIP_STANDARD);
         }
 
         // without geoip extension

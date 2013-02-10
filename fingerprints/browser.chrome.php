@@ -1,4 +1,6 @@
 <?php
+namespace __BOUNCER__;
+
 $browsers_fingerprints = array(
 '943aeed9379925b0b633576ae70af3b0',
 '4e42cfde5f0123a11cdb6c9545b0a3a2',
@@ -19586,4 +19588,3 @@ $browsers_fingerprints = array(
 '7e142cc4d93dd876145c0d5b45ee1da0',
 );
 return $browsers_fingerprints;
-?>

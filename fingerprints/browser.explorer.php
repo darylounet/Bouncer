@@ -1,4 +1,6 @@
 <?php
+namespace __BOUNCER__;
+
 $browsers_fingerprints = array(
 
 /* Explorer 9.0 - Vista */
@@ -39,4 +41,3 @@ $browsers_fingerprints = array(
 
 );
 return $browsers_fingerprints;
-?>

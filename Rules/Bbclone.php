@@ -1,12 +1,13 @@
 <?php
+namespace __BOUNCER__;
 
 class Bouncer_Rules_Bbclone
 {
 
     public static function load()
     {
-        Bouncer::addRule('agent_infos', array('Bouncer_Rules_Bbclone', 'agentInfos'));
-        // Bouncer::addRule('ip_infos', array('Bouncer_Rules_Bbclone', 'ipInfos'));
+        Bouncer::addRule('agent_infos', __NAMESPACE__ .'\Bouncer_Rules_Bbclone::agentInfos');
+        // Bouncer::addRule('ip_infos', __NAMESPACE__ .'\Bouncer_Rules_Bbclone::ipInfos');
     }
 
     public static function agentInfos($infos)

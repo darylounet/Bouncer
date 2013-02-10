@@ -1,4 +1,6 @@
 <?php
+namespace __BOUNCER__;
+
 /* This file is part of BBClone (A PHP based Web Counter on Steroids)
  *
  * CVS FILE $Id: os.php,v 1.110 2010/12/31 23:00:28 joku Exp $
@@ -708,4 +710,3 @@ $os = array(
     )
   )
 );
-?>

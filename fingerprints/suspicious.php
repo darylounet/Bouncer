@@ -1,4 +1,6 @@
 <?php
+namespace __BOUNCER__;
+
 $suspicious_fingerprints = array(
 // Empty
 'd41d8cd98f00b204e9800998ecf8427e',
@@ -246,4 +248,3 @@ $suspicious_fingerprints = array(
 '3098ff1030d58eb6db388a85cdb63e75',    //  BM - Windows XP    - Explorer 7.0     (US - referer:http://web-sniffer.net/)
 );
 return $suspicious_fingerprints;
-?>

@@ -1,4 +1,6 @@
 <?php
+namespace __BOUNCER__;
+
 /*This file is part of BBClone (The PHP web counter on steroids)
  *
  * $Header: /srv/cvs/bbclone/bbclone/lib/robot.php,v 1.259 2009/10/26 05:57:56 prad Exp $

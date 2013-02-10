@@ -1,4 +1,6 @@
 <?php
+namespace __BOUNCER__;
+
 $known_fingerprints = array(
 // Top Bots
 '793f840d86e2554135283d9aef58c7ff',  // Googlebot
@@ -191,4 +193,3 @@ $known_fingerprints = array(
 'c731f9328e05afdd157996f032288166',  // Reeder/2.3 CFNetwork/485.12.7 Darwin/10.4.0
 );
 return $known_fingerprints;
-?>

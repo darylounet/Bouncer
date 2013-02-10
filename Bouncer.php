@@ -1,4 +1,5 @@
 <?php
+namespace __BOUNCER__;
 
 class Bouncer
 {
@@ -343,7 +344,7 @@ class Bouncer
         }
 
         // End
-        register_shutdown_function(array('Bouncer', 'end'));
+        register_shutdown_function(__NAMESPACE__ .'\Bouncer::end');
     }
 
     protected static function analyse($identity, $request)

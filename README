@@ -38,19 +38,27 @@ Installation
 Add the bouncer code as soon as you can in your PHP script:
 
     require_once 'Bouncer/Bouncer.php';
-    Bounce::run(array('namespaces' => array('siteid')));
+    \__BOUNCER__\Bouncer::run(array(
+        'namespaces' => array('siteid'),
+        'backend' => 'memcache',
+        'servers' => array('127.0.0.1')
+    ));
 
 To output statistics, use the following code in a PHP file:
 
     require_once 'Bouncer/Bouncer.php';
-    Bouncer::stats(array('namespace' => 'siteid'));
+    \__BOUNCER__\Bouncer::stats(array(
+        'namespaces' => array('siteid'),
+        'backend' => 'memcache',
+        'servers' => array('127.0.0.1')
+    ));
 
 To use additional Rules, load Rules before you run:
 
     require_once 'Bouncer/Bouncer.php';
     require_once 'Bouncer/Rules/Httpbl.php';
-    Bouncer_Rules_Httpbl::load(array('api_key' => 'myapikey'));
-    Bounce::run(array('namespaces' => array('siteid')));
+    \__BOUNCER__\Bouncer_Rules_Httpbl::load(array('api_key' => 'myapikey'));
+    \__BOUNCER__\Bouncer::run(array('namespaces' => array('siteid')));
 
 Dashboard
 ---------

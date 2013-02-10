@@ -1,4 +1,5 @@
 <?php
+namespace __BOUNCER__;
 
 class Bouncer_Rules_Fingerprint
 {
@@ -7,8 +8,8 @@ class Bouncer_Rules_Fingerprint
 
     public static function load()
     {
-        Bouncer::addRule('browser_identity', array('Bouncer_Rules_Fingerprint', 'analyseIdentity'));
-        Bouncer::addRule('robot_identity', array('Bouncer_Rules_Fingerprint', 'analyseIdentity'));
+        Bouncer::addRule('browser_identity', __NAMESPACE__ .'\Bouncer_Rules_Fingerprint::analyseIdentity');
+        Bouncer::addRule('robot_identity', __NAMESPACE__ .'\Bouncer_Rules_Fingerprint::analyseIdentity');
     }
 
     public static function analyseIdentity($identity)

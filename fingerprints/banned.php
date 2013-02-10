@@ -1,4 +1,6 @@
 <?php
+namespace __BOUNCER__;
+
 $banned_fingerprints = array(
 // Most Popular
 'cd3ea020baf312a8dc8e12e8ecd524ab',
@@ -182,4 +184,3 @@ $banned_fingerprints = array(
 '69c914f8638b73983cc50aaad91257f1', // Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
 );
 return $banned_fingerprints;
-?>

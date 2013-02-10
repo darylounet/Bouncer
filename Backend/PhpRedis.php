@@ -1,4 +1,5 @@
 <?php
+namespace __BOUNCER__;
 
 class Bouncer_Backend_PhpRedis
 {
@@ -14,11 +15,11 @@ class Bouncer_Backend_PhpRedis
         );
         $options = array_merge($defaults, $options);
 
-        self::$_redis = new Redis();
+        self::$_redis = new \Redis();
         foreach ($options['servers'] as $server) {
           self::$_redis->connect($server['host'], $server['port'], $server['timeout']);
         }
-        self::$_redis->setOption(Redis::OPT_SERIALIZER, Redis::SERIALIZER_PHP);
+        self::$_redis->setOption(\Redis::OPT_SERIALIZER, \Redis::SERIALIZER_PHP);
     }
 
     public function clean()
