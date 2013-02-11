@@ -25,17 +25,17 @@ class Bouncer_Rules_Geoip extends Bouncer
     public static function country_code_by_addr($addr, $host)
     {
         // first run without geoip extension
-        if (empty(self::$_gi) && !function_exists('geoip_country_code_by_name')) {
+        if (empty(self::$_gi) && !function_exists(__NAMESPACE__ .'\geoip_country_code_by_name')) {
             require_once dirname(__FILE__) . '/../lib/geoip.inc.php';
             self::$_gi = geoip_open(dirname(__FILE__) . '/../lib/geoip.dat', GEOIP_STANDARD);
         }
 
         // without geoip extension
-        if (isset(self::$_gi) && function_exists('geoip_country_code_by_addr')) {
+        if (isset(self::$_gi) && function_exists(__NAMESPACE__ .'\geoip_country_code_by_addr')) {
             $code = geoip_country_code_by_addr(self::$_gi, $addr);
 
         // with geoip extension
-        } elseif (function_exists('geoip_country_code_by_name')) {
+        } elseif (function_exists(__NAMESPACE__ .'\geoip_country_code_by_name')) {
             $code = geoip_country_code_by_name($host);
         }
 
